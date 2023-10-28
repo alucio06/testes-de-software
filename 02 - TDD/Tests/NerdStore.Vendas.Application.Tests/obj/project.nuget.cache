@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y8LFkuHcFN/Wamcovqu3NfbO31t0rsJ60k2nUbX/uDPOZ3EA5Pmru0iSE7gSbfx+krcVhNQZeHUXV+DAEedJQw==",
+  "dgSpecHash": "8lrmzGEIr4PB5e3wIyrzoAjrSzkLntcbsRN1A5vBbN+/0FJTznjMujPx6Y7/2dWizL6REcyhUY6JkXyAe0QjGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anderson\\Documents\\Projetos\\TestesDeSoftware\\02 - TDD\\NerdStore.Vendas.Application.Tests\\NerdStore.Vendas.Application.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Anderson\\Documents\\Projetos\\TestesDeSoftware\\02 - TDD\\Tests\\NerdStore.Vendas.Application.Tests\\NerdStore.Vendas.Application.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anderson\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Anderson\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
