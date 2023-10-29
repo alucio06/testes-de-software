@@ -1,4 +1,6 @@
-﻿namespace NerdStore.Vendas.Domain
+﻿using FluentValidation.Results;
+
+namespace NerdStore.Vendas.Domain
 {
     public class Pedido
     {
@@ -7,9 +9,46 @@
 
         public Guid ClienteId { get; set; }
         public decimal ValorTotal { get; private set; }
-        public PedidoStatus PedidoStatus { get; set; }
+        public decimal Desconto { get; set; }
+        public PedidoStatus PedidoStatus { get; private set; }
+        public bool VoucherUtilizado { get; private set; }
+        public Voucher? Voucher { get; private set; }
+
         private readonly List<PedidoItem> _pedidoItems;
         public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
+
+        public ValidationResult AplicarVoucher(Voucher voucher)
+        {
+            var result = voucher.ValidarSeAplicavel();
+            if (!result.IsValid) return result;
+
+            Voucher = voucher;
+            VoucherUtilizado = true;
+
+            CalcularValorTotalDesconto();
+
+            return result;
+        }
+
+        public void CalcularValorTotalDesconto()
+        {
+            if (!VoucherUtilizado || Voucher == null) return;
+
+            decimal desconto = 0;
+
+            if (Voucher.TipoDescontoVoucher == TipoDescontoVoucher.Valor)
+            {
+                desconto = Voucher.ValorDesconto.GetValueOrDefault();
+            }
+
+            if (Voucher.TipoDescontoVoucher == TipoDescontoVoucher.Porcentagem)
+            {
+                desconto = (ValorTotal * Voucher.PercentualDesconto.GetValueOrDefault()) / 100;
+            }
+
+            ValorTotal -= desconto > ValorTotal ? ValorTotal : desconto;
+            Desconto = desconto;
+        }
 
         protected Pedido()
         {
@@ -86,6 +125,7 @@
         private void CalcularValorPedido()
         {
             ValorTotal = _pedidoItems.Sum(i => i.CalcularValor());
+            CalcularValorTotalDesconto();
         }
 
         public static class PedidoFactory
@@ -101,14 +141,5 @@
                 return pedido;
             }
         }
-    }
-
-    public enum PedidoStatus
-    {
-        Rascunho = 0,
-        Iniciado = 1,
-        Pago = 4,
-        Entregue = 5,
-        Cancelado = 6
     }
 }

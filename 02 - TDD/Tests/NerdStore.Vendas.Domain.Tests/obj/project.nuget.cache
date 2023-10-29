@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "cM6eM9x7+xUezolqnFPkYyZA6s1tkt8z5PQpfOKxouEOggZSbkWNtmfYGqTVKxl10j6G1X0hkq3pVMmSKMvrPQ==",
+  "dgSpecHash": "QVaQycfAbNl75B5iTDhu7MmcqKO5L2WiWEie4R96qhd4E4SsPNjvZIEq3QnLMBQaTqZovwjtCxk2taNWduTNtA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anderson\\Documents\\Projetos\\TestesDeSoftware\\02 - TDD\\Tests\\NerdStore.Vendas.Domain.Tests\\NerdStore.Vendas.Domain.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anderson\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\Anderson\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\Anderson\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
     "C:\\Users\\Anderson\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Anderson\\.nuget\\packages\\microsoft.net.test.sdk\\17.3.2\\microsoft.net.test.sdk.17.3.2.nupkg.sha512",
